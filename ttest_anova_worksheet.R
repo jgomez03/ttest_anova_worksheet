@@ -1,4 +1,4 @@
-### T -Test - The difference between two groups
+#### T -Test - The difference between two groups
 
 # Cohen's d is determined by calculating the mean difference between your two groups
 # and then dividing the result by the pooled standard deviation. Cohen's d is the appropriate effect size 
@@ -109,3 +109,80 @@ print(d.value)
 ci.smd.c(smd.c=d.value,n.E=length(exp.group.rows$Arousal),
        n.C=length(control.group.rows$Arousal))
 # # CI [.11, 1.14]
+
+
+# _______________________________________________________________________________
+# _______________________________________________________________________________
+
+#### ANOVA
+
+# load data
+#library(tidyverse)
+oneway.data <- read.csv("Viagra.csv")
+
+# set factors correctly
+oneway.data$dose <- as.factor(oneway.data$dose)
+levels(oneway.data$dose) <- list("Placebo"=1, "Low Dose"=2, "High Dose"=3)
+
+# display descriptive statistics
+psych::describeBy(oneway.data$libido, group=oneway.data$dose)
+# will gets Means, SDs
+# libido is DV
+
+# test for homogeneity of variance
+# levenes test
+car::leveneTest(oneway.data$libido, group=oneway.data$dose, center="median")
+# not significant so assumption not violated 
+
+## MAIN ANALYSES, EQUAL VARIANCES ASSUMED (i.e., Levene's not significant)
+# set contrasts
+options(contrasts = c("contr.sum", "contr.poly"))
+
+# run ANOVa
+summary(oneway.results)
+
+car::Anova(oneway.results,type=3)
+
+# use APA Tables
+library(apaTables)
+apa.aov.table(oneway.results,table.number = 1, filename = "Table1.doc")
+
+# APA Mean/SD table
+apa.1way.table(iv=dose, dv=libido,
+               data=oneway.data,
+               table.number = 2,
+               filename = "Table2.doc",
+               show.conf.interval = TRUE)
+
+# graphing ANOVA 
+myBar<-ggplot(oneway.data,aes(dose,libido))
+myBar<-myBar + stat_summary(fun.y=mean, geom="bar",fill="Grey",colour="Black")
+myBar<-myBar + stat_summary(fun.data=mean_cl_normal, geom="errorbar",width=0.2)
+myBar<-myBar + coord_cartesian(ylim=c(1, 7))
+myBar<-myBar + scale_y_continuous(breaks=seq(1, 7))
+myBar<-myBar + labs(x="Dose", y="Libido")
+myBar<-myBar + theme_classic(12)
+print(myBar)
+
+## MAIN ANALYSES, EQUAL NOT VARIANCES ASSUMED (i.e., Levene's IS significant)
+# see sheet
+
+
+### POST HOC COMPARISONS 
+## when you don't have a specific hypothesis
+
+## Bonferroni correction
+pairwise.t.test(oneway.data$libido,oneway.data$dose,p.adjust.method="bonferroni")
+
+## Tukey
+library(multcomp)
+posthocs<-glht(oneway.results,linfct=mcp(dose="Tukey"))
+summary(posthocs)
+
+##use apa tables to to calculate all paired comparisons (w/o controlling for type I error)
+library(apaTables)
+apa.d.table(iv = dose, dv = libido,
+            data =  oneway.data,
+            filename="dValueTable.doc"",
+            show.conf.interval = TRUE)
+              
