@@ -185,4 +185,87 @@ apa.d.table(iv = dose, dv = libido,
             data =  oneway.data,
             filename="dValueTable.doc"",
             show.conf.interval = TRUE)
-              
+
+# _______________________________________________________________________________________
+# _______________________________________________________________________________________
+
+#### CRF ANOVA
+
+#load data
+library(tidyverse)
+
+crf.data <- read_csv("crfData.csv")
+
+## set factors
+crf.data$anxiety <- as.factor(crf.data$anxiety)
+crf.data$preparation <- as.factor(crf.data$preparation)             
+
+levels(crf.data$anxiety) <- list("Low Anxiety"=1, 
+                                 "High Anxiety"=2) 
+            
+            levels(crf.data$preparation) <- list("Low Preparation"=1,
+            "Medium Preparation"=2,
+            "High Preparation"=3)
+
+# Setting contrasts
+options(contrasts = c("contr.sum", "contr.poly"))
+            
+##run the analysis
+crf.lm <- lm(mark ~ anxiety * preparation, data=crf.data)
+
+### seeing if there is an INTERACTION
+
+#using apa tables 
+library(apaTables)
+apa.aov.table(crf.lm,filename="Table1.doc")
+
+### display descriptive stats - aka means table
+apa.2way.table(iv1=preparation, iv2=anxiety, dv=mark, data=crf.data,
+               show.marginal.means = TRUE, filename="Table2.doc")
+
+
+### graph cell means
+myBar <- ggplot(crf.data,aes(preparation,mark,fill=anxiety))
+myBar <- myBar + stat_summary(fun.y =mean,geom="bar", position="dodge")
+myBar <- myBar + stat_summary(fun.data =mean_cl_normal, geom="errorbar", position=position_dodge(width=0.9), width=0.2)
+
+myBar <- myBar + scale_fill_manual("Anxiety",values=c("Dark Grey","Light Grey""))
+myBar <- myBar + coord_cartesian(ylim=c(0,100))
+myBar <- myBar + labs(x="Preparation",y="Grade")
+myBar <- myBar + theme_classic()
+print(myBar)
+
+
+## test homgeneity of variance
+crf.data.temp <- crf.data
+crf.data.temp$cells <- interaction(crf.data$anxiety,crf.data$preparation)
+print(crf.data.temp)
+
+car::leveneTest(y = crf.data.temp$mark,
+                group = crf.data.temp$cells,
+                center="median")
+
+
+
+#phia package runs simple main effects
+library(phia)
+            
+get.ci.partial.eta.squared(F.value=7.1411, df1=2, df2=24, conf.level = .90)
+
+get.ci.partial.eta.squared(F.value=0.9733, df1=2, df2=24, conf.level = .90)
+
+##report p values to .3 decimals (unless less than .001, then just put less than)
+#simple main effects
+testInteractions(crf.lm, fixed="anxiety",across="preparation", adjustment="bonferroni")
+
+print(testInteractions)
+### get d values with CIs using apaTables
+## disregard sig stars 
+
+low.anx.people <- crf.data %>% filter(anxiety=="Low Anxiety")
+apa.d.table(iv=preparation, dv=mark, data=low.anx.people,filename="Table3a.doc")
+
+high.anx.people <- crf.data %>% filter(anxiety=="High Anxiety")
+apa.d.table(iv=preparation, dv=mark, data=low.anx.people,filename="Table3b.doc")
+
+

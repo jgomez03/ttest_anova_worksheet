@@ -1,8 +1,33 @@
 {\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}
-{\pard Table 2 \par}
+{\pard Table XX \par}
 {\pard  \par}
-{\pard\i Descriptive statistics for libido as a function of dose. \par}
+{\pard\i Means and standard deviations for mark as a function of a 3(preparation) X 2(anxiety) design\par}
 {\pard  \par}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9179 
+\pard\sa100\sb100\intbl\qr{ }\cell
+\pard\sa100\sb100\intbl\qc{anxiety}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1835 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4284 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx6732 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{ }\cell
+\pard\sa100\sb100\intbl\qc{Low Anxiety}\cell
+\pard\sa100\sb100\intbl\qc{High Anxiety}\cell
+\pard\sa100\sb100\intbl\qc{Marginal}\cell
+\row
+}
 {
 \trowd \trgaph100
 \clbrdrt\brdrw15\brdrs
@@ -15,10 +40,16 @@
 \clvertalc\cellx5508 
 \clbrdrt\brdrw15\brdrs
 \clvertalc\cellx6732 
-\pard\sa100\sb100\intbl\qr{{\i dose}}\cell
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx7956 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{preparation}\cell
 \pard\sa100\sb100\intbl\qc{{\i M}}\cell
-\pard\sa100\sb100\intbl\qc{{\i LL}}\cell
-\pard\sa100\sb100\intbl\qc{{\i UL}}\cell
+\pard\sa100\sb100\intbl\qc{{\i SD}}\cell
+\pard\sa100\sb100\intbl\qc{{\i M}}\cell
+\pard\sa100\sb100\intbl\qc{{\i SD}}\cell
+\pard\sa100\sb100\intbl\qc{{\i M}}\cell
 \pard\sa100\sb100\intbl\qc{{\i SD}}\cell
 \row
 }
@@ -34,11 +65,17 @@
 \clvertalc\cellx5508 
 \clbrdrt\brdrw15\brdrs
 \clvertalc\cellx6732 
-\pard\sa100\sb100\intbl\qr{Placebo}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{2.20}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{0.58}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{3.82}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{1.30}\cell
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx7956 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{Low Preparation}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{71.40}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{5.50}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{59.40}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{3.13}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{65.40}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{7.60}\cell
 \row
 }
 {
@@ -48,11 +85,33 @@
 \clvertalc\cellx4284 
 \clvertalc\cellx5508 
 \clvertalc\cellx6732 
-\pard\sa100\sb100\intbl\qr{Low Dose}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{3.20}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{1.58}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{4.82}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{1.30}\cell
+\clvertalc\cellx7956 
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{Medium Preparation}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{72.60}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{8.88}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{52.60}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{7.64}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{62.60}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{13.12}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx1835 
+\clvertalc\cellx3060 
+\clvertalc\cellx4284 
+\clvertalc\cellx5508 
+\clvertalc\cellx6732 
+\clvertalc\cellx7956 
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{High Preparation}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{88.00}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{8.15}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{55.40}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{10.78}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{71.70}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{19.40}\cell
 \row
 }
 {
@@ -67,12 +126,18 @@
 \clvertalc\cellx5508 
 \clbrdrb\brdrw15\brdrs
 \clvertalc\cellx6732 
-\pard\sa100\sb100\intbl\qr{High Dose}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{5.00}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{3.04}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{6.96}\cell
-\pard\sa100\sb100\intbl\tqdec\tldot\tx428{1.58}\cell
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx7956 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx9180 
+\pard\sa100\sb100\intbl\qr{Marginal}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{77.33}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{10.55}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{55.80}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{7.81}\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{ }\cell
+\pard\sa100\sb100\intbl\tqdec\tldot\tx428{ }\cell
 \row
 }
-{\pard \par}{\pard{\i Note.} {\i M} and {\i SD} represent mean and standard deviation, respectively. {\i LL} and {\i UL} indicate the lower and upper limits of the 95% confidence interval for the mean, respectively. The confidence interval is a plausible range of population means that could have created a sample mean (Cumming, 2014).\par}
+{\pard \par}{\pard{\i Note.} {\i M} and {\i SD} represent mean and standard deviation, respectively.\par}
 }
